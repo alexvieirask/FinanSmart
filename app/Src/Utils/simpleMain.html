@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.toastr.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.dataTables.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.fontawesome.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.selectize.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/utils/SKGlobal.css') }}">
+        <script type="module" src="{{ url_for('static', filename='js/utils/SKGlobal.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/Libs/libs.jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/Libs/libs.toastr.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/Libs/libs.dataTables.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/Libs/libs.selectize.js') }}"></script>
+        {% block head %}
+        
+        {% endblock %}
+    </head> 
+    <body>
+        {% block body %} 
+        
+        {% endblock %}
+
+        {% block scripts %}
+           
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,12 @@
+## Python
+__pycache__/
+
+## Databases
+instance/
+*.sqlite
+*.db
+
+Secrets.py
+_commands.py
+
+*.log

@@ -1,0 +1,90 @@
+{% extends "Utils/simpleMain.html" %}
+    {% block head %}
+        <title>FinanSmart</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Pages/login.css') }}">
+    {% endblock %}
+
+    {% block body %}
+        <main id="main-login">
+            <div id="logreg-forms">
+                <form class="form-signin">
+                    <h1 class="h4 mb-3 font-weight-bold text-center">Conecte-se</h1>
+
+                    <div class="items-input-signin">
+                        <input required
+                               name="inputEmail" 
+                               type="text" 
+                               id="inputEmail" 
+                               class="form-control" 
+                               placeholder="E-mail" >
+                        <input required
+                               name="inputPassword" 
+                               type="password" 
+                               id="inputPassword" 
+                               class="form-control" 
+                               placeholder="Senha" >
+                    </div>
+                    
+                    <button class="btn btn-success btn-block" type="submit" id="submit-signin">Entrar</button>
+                    <a  id="forgot_pswd">Esqueceu a senha?</a>
+                    <hr>
+
+                    <button class="btn btn-primary btn-block" type="button" id="btn-signup">Criar Nova Conta</button>
+                </form>
+
+                <form class="form-reset">
+                    <h1 class="h4 mb-3 font-weight-bold" style="text-align: center">Resetar</h1>
+                    <div id="loading-icon"></div>
+                    <div class="items-input-reset">
+                        <input type="email" id="resetEmail" class="form-control" placeholder="E-mail">
+                    </div>
+                    <button id="submit-reset" class="btn btn-primary btn-block" type="submit">Resetar Senha</button>
+                    <a  id="cancel_reset">Voltar</a>
+                </form>
+                
+                <form  class="form-signup">
+                    <div class="items-input">
+                        <h1 class="h4 mb-3 font-weight-bold " style="text-align: center;">Registrar</h1>
+                        <input type="text" 
+                               name = "user-fullname"
+                               id="user-fullname" 
+                               class="form-control "
+                               placeholder="Nome Completo" 
+                               required>
+                        <input type="text"
+                               name="user-name"  
+                               id="user-name"
+                               class="form-control" 
+                               placeholder="Usuário"           
+                               required>    
+                        <input type="email"
+                               name="user-email"  
+                               id="user-email" 
+                               class="form-control" 
+                               placeholder="E-mail"          
+                               required>
+                        <input type="password"
+                               name="user-pass"   
+                               id="user-pass" 
+                               class="form-control" 
+                               placeholder="Senha"         
+                               required>
+                        <input type="password"
+                               name="user-repeatpass"
+                               id="user-repeatpass" 
+                               class="form-control" 
+                               placeholder="Confirme a Senha" 
+                               required>
+                    </div>
+                    <button id="submit-signup" class="btn btn-primary btn-block" type="submit">Registrar</button>
+                    <a  id="cancel_signup">Voltar</a>
+                </form>
+                <br>
+            </div>
+        </main>
+        
+    {% endblock %}
+
+    {% block scripts %}
+        <script type="module" src="{{ url_for('static', filename='JS/Pages/Login/login.JS') }}"></script>
+    {% endblock %}
