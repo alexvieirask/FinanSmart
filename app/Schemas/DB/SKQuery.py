@@ -40,9 +40,7 @@ class NewSKQuery:
             cur.close()
 
             self.LogSQL(procedure_name)
-            
             return result
-        
         except psycopg2.Error as error:
             self.LogSQL(procedure_name, str(error))
         finally:
@@ -62,11 +60,9 @@ class NewSKQuery:
             connection.commit()
             cur.close()
             self.LogSQL(procedure_name)
-            
         except psycopg2.Error as error:
             self.LogSQL(procedure_name, str(error))
             print("Erro ao executar o comando:", error)
-
         finally:
             connection.close()
 
@@ -97,7 +93,6 @@ class NewSKQuery:
         
         if missing_params:
             raise ValueError(f"Parâmetros não atribuídos: {', '.join(missing_params)}")
-        
         return converted_query, params
 
     def _extract_param_names(self, query):

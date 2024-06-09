@@ -42,4 +42,4 @@ async function signUp(fullname,
 }
 
 export { signIn, 
-         signUp  }
+         signUp }

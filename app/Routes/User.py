@@ -3,6 +3,7 @@ from System.Config import *
 from Schemas.Global.SKException import SKException
 from System.Forms import *
 from Schemas.DB.SKQuery import *
+import re
 
 class AuthUser:
     @staticmethod
@@ -36,15 +37,14 @@ class AuthUser:
     def signin_authenticate_route():
         try:
             fields = request.get_json()
-
             if fields_empty(fields):
-                raise SKException(777, 'Faltou preencher campos obrigatórios.')
-
+                raise SKException(777,'Faltou preencher campos obrigatórios.')
+            
             Q = NewSKQuery()
             try:
                 Q.Add('''SELECT * 
-                        FROM "public"."User" 
-                        WHERE email = :EMAIL ''')
+                         FROM "public"."User" 
+                         WHERE email = :EMAIL ''')
 
                 Q.ParamByName("EMAIL", fields["useremail"])
 
@@ -58,11 +58,10 @@ class AuthUser:
 
                 access_token = create_access_token(identity=fields["useremail"])
 
-                response = jsonify({"status": 200, "details": access_token})
-
+                response = jsonify({"status": 200,
+                                    "details": access_token})
             finally:
                 Q.Close()
-
         except SKException as auth_error:
             response = auth_error.to_response()
         finally:
@@ -73,7 +72,6 @@ class AuthUser:
         response = ''
         try:
             fields = request.get_json()
-
             if fields_empty(fields):
                 raise 'Faltou preencher campos obrigatórios.';
         
@@ -102,10 +100,13 @@ class AuthUser:
                 Q.Close();
 
                 Q.Add('''INSERT INTO "User" (fullname, 
-                                                username, 
-                                                email, 
-                                                password)
-                            VALUES (:FULLNAME, :USERNAME, :EMAIL, :PASSWORD)''')
+                                             username, 
+                                             email, 
+                                             password)
+                         VALUES (:FULLNAME, 
+                                 :USERNAME, 
+                                 :EMAIL, 
+                                 :PASSWORD)''')
                 Q.ParamByName("FULLNAME",fields["fullname"])
                 Q.ParamByName("USERNAME",fields["username"])
                 Q.ParamByName("EMAIL",fields["useremail"])
@@ -113,7 +114,8 @@ class AuthUser:
 
                 Q.Execute();
         
-                response = jsonify({"status":200, "details":"Usuário registrado no sistema."})
+                response = jsonify({"status":200, 
+                                    "details":"Usuário registrado no sistema."})
             finally:
                 Q.Close();
         except SKException as auth_error:

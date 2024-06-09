@@ -2,5 +2,5 @@ from System.Config import *
 
 class Templates:
     @app.route("/")
-    def pages_login():
+    def SKIndex():
         return render_template("Pages/Login/login.html")

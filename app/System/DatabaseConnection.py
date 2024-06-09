@@ -17,19 +17,9 @@ def connect_database():
 
 def extract_database_info(DATABASE_URI: str):
     parsed_uri = urlparse(DATABASE_URI)
-        
-    HOST = str(parsed_uri.hostname)
-    PORT = str(parsed_uri.port)
-    DATABASE =  str(parsed_uri.path[1:])
-    USER = str(parsed_uri.username)
-    PASSWORD  = str(parsed_uri.password)
-
-    uri_to_dict = {
-        "HOST":HOST,
-        "PORT":PORT,
-        "DATABASE":DATABASE,
-        "USER":USER,
-        "PASSWORD":PASSWORD
+    return { "HOST": str(parsed_uri.hostname), 
+             "PORT":str(parsed_uri.port),
+             "DATABASE":str(parsed_uri.path[1:]),
+             "USER":str(parsed_uri.username),
+             "PASSWORD":str(parsed_uri.password)
     }
-
-    return uri_to_dict

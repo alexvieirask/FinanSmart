@@ -9,7 +9,6 @@
             <div id="logreg-forms">
                 <form class="form-signin">
                     <h1 class="h4 mb-3 font-weight-bold text-center">Conecte-se</h1>
-
                     <div class="items-input-signin">
                         <input required
                                name="inputEmail" 
@@ -24,24 +23,29 @@
                                class="form-control" 
                                placeholder="Senha" >
                     </div>
-                    
-                    <button class="btn btn-success btn-block" type="submit" id="submit-signin">Entrar</button>
+                    <button class="btn btn-success btn-block" 
+                            type="submit" 
+                            id="submit-signin">Entrar</button>
                     <a  id="forgot_pswd">Esqueceu a senha?</a>
                     <hr>
-
-                    <button class="btn btn-primary btn-block" type="button" id="btn-signup">Criar Nova Conta</button>
+                    <button class="btn btn-primary btn-block" 
+                            type="button" 
+                            id="btn-signup">Criar Nova Conta</button>
                 </form>
-
                 <form class="form-reset">
                     <h1 class="h4 mb-3 font-weight-bold" style="text-align: center">Resetar</h1>
                     <div id="loading-icon"></div>
                     <div class="items-input-reset">
-                        <input type="email" id="resetEmail" class="form-control" placeholder="E-mail">
+                        <input type="email" 
+                               id="resetEmail" 
+                               class="form-control" 
+                               placeholder="E-mail">
                     </div>
-                    <button id="submit-reset" class="btn btn-primary btn-block" type="submit">Resetar Senha</button>
-                    <a  id="cancel_reset">Voltar</a>
+                    <button id="submit-reset" 
+                            class="btn btn-primary btn-block" 
+                            type="submit">Resetar Senha</button>
+                    <a id="cancel_reset">Voltar</a>
                 </form>
-                
                 <form  class="form-signup">
                     <div class="items-input">
                         <h1 class="h4 mb-3 font-weight-bold " style="text-align: center;">Registrar</h1>
@@ -76,13 +80,14 @@
                                placeholder="Confirme a Senha" 
                                required>
                     </div>
-                    <button id="submit-signup" class="btn btn-primary btn-block" type="submit">Registrar</button>
+                    <button id="submit-signup" 
+                            class="btn btn-primary btn-block" 
+                            type="submit">Registrar</button>
                     <a  id="cancel_signup">Voltar</a>
                 </form>
                 <br>
             </div>
         </main>
-        
     {% endblock %}
 
     {% block scripts %}
