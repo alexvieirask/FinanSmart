@@ -1,6 +1,7 @@
 
 from System.Config import *
 from Schemas.Global.SKException import SKException
+from Schemas.DB.SKCache import SKCache
 from System.Forms import *
 from Schemas.DB.SKQuery import *
 import re
@@ -120,5 +121,36 @@ class AuthUser:
                 Q.Close();
         except SKException as auth_error:
                 response = auth_error.to_response()
+        finally:
+            return response
+        
+class User:
+    @app.route("/user/info")
+    @jwt_required() 
+    def user_info_route(): 
+        response = ''
+        try:
+            useremail = get_jwt_identity()
+            user_cache = SKCache.get_user_cache(useremail)
+
+            data = user_cache.get("user_info")
+
+            if data is None:
+                Q:NewSKQuery = NewSKQuery();
+                try:
+                    Q.Add('''SELECT *
+                             FROM "User" 
+                             WHERE EMAIL = :EMAIL
+                          ''')
+                    Q.ParamByName('EMAIL',useremail)
+                    
+                    data = Q.Open(fetch="one")
+                    user_cache.set("user_info", data)
+                finally:
+                    Q.Close();
+            
+            response = jsonify({"status":200, "details": data })
+        except SKException as auth_error:
+            response = auth_error.to_response()
         finally:
             return response

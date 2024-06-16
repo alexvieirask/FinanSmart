@@ -1,19 +1,19 @@
-class Session{
+class Session {
     URL = document.URL;
     PROTOCOL = "http://";
 
-    static get IP_ADDRESS(){
+    static get IP_ADDRESS() {
         const session = new Session();
         var ENDERECO_IP = session.URL.substring(session.PROTOCOL.length);
         var COLON_POSITION = ENDERECO_IP.indexOf(":");
         return ENDERECO_IP.substring(0, COLON_POSITION);
     }
 
-    static get JWT(){
-        return sessionStorage.getItem("JWT")
+    static get JWT() {
+        return sessionStorage.getItem("JWT");
     }
 
-    static get listLocalStorage(){
+    static get listLocalStorage() {
         const keys = [];
 
         for (let i = 0; i < localStorage.length; i++) {
@@ -23,7 +23,7 @@ class Session{
         return keys;
     }
 
-    static get listSessionStorage(){
+    static get listSessionStorage() {
         const keys = [];
 
         for (let i = 0; i < sessionStorage.length; i++) {
@@ -33,19 +33,19 @@ class Session{
         return keys;
     }
 
-    static set JWT(value){
-        sessionStorage.setItem("JWT",value)
+    static set JWT(value) {
+        sessionStorage.setItem("JWT", value);
     }
 
-    static get USER(){
+    static get USER() {
         return new Promise(async (resolve, reject) => {
             try {
-              const user = await Session.CURRENT_USER();
-              resolve(user);
+                const user = await Session.CURRENT_USER();
+                resolve(user);
             } catch (error) {
-              reject(error);
+                reject(error);
             }
-          });
+        });
     }
 
     static async CURRENT_USER(){
@@ -65,19 +65,18 @@ class Session{
             return responseData.details;
         }
     }
-    
-    static destroy(){
-        Session.listSessionStorage.forEach(item=>{
-            sessionStorage.removeItem(item)
-        })
 
-        Session.listLocalStorage.forEach(item=>{
-            localStorage.removeItem(item)
-        })
+    static destroy() {
+        Session.listSessionStorage.forEach(item => {
+            sessionStorage.removeItem(item);
+        });
 
-        window.location('./');
+        Session.listLocalStorage.forEach(item => {
+            localStorage.removeItem(item);
+        });
+
+        window.location.href = './';
     }
-
 }
 
-export { Session }
+export { Session };

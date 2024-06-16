@@ -1,0 +1,52 @@
+.body-style {
+    display: block;
+    height: 100vh;
+    margin: 0;
+}
+
+.container-style {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header-style {
+    background-color: #5820FF;
+    padding: 1% 2%;
+    color: #fff;
+}
+
+.header-title {
+    font-size: 2.05vw;
+    font-weight: bold;
+}
+
+.header-username {
+    font-size: 1vw;
+}
+
+.content-style {
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.sidebar-style {
+    background-color: #5820FF;
+    box-shadow: inset 0px 10px 10px -10px rgba(0, 0, 0, 0.5);
+    min-width: 300px;
+    height: 100%;
+}
+
+.sidebar-nav {
+    height: 100%;
+    justify-content: space-between;
+}
+
+.main-content {
+    padding-top: 5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    width: 100%;
+    display: flex;
+}

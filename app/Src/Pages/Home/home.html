@@ -1,0 +1,14 @@
+{% extends "Utils/main.html" %}
+    {% block head %}
+        <title>FinanSmart</title>
+    {% endblock %}
+
+    {% block body %}
+        <main>
+            <h1>Home</h1>
+        </main>
+    {% endblock %}
+
+    {% block scripts %}
+        <script type="module" src="{{ url_for('static', filename='JS/Pages/Home/home.JS') }}"></script>
+    {% endblock %}

@@ -1,82 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.toastr.min.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.dataTables.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.fontawesome.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.selectize.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='Styles/utils/SKGlobal.css') }}">
-        <script type="module" src="{{ url_for('static', filename='js/utils/SKGlobal.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/Libs/libs.jquery.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/Libs/libs.toastr.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/Libs/libs.dataTables.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/Libs/libs.selectize.js') }}"></script>
-        {% block head %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.toastr.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.dataTables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Libs/libs.selectize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styles/utils/SKGlobal.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Styles/Utils/SKMain.css') }}">
+    <script src="{{ url_for('static', filename='js/Libs/libs.jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/Libs/libs.toastr.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/Libs/libs.dataTables.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/Libs/libs.selectize.js') }}"></script>
+    {% block head %}
 
-        {% endblock %}
-    </head> 
-    <body style="display: none;">
-        <div style="display: flex; flex-direction: column; height: 100%;">
-            <div>
-                <div class="d-flex justify-content-between align-items-center h-100" style="background-color: #5820FF;padding: 1% 2%;color: #fff;">
-                    <span style="font-size: 2.05vw; font-weight: bold;">Finances</span>
-                    <span class="font-weight-bold" id="header-username-span" style="font-size: 1vw;"></span>
-                </div>
-            </div>
-            <div style="display: flex; flex-grow: 1;">
-                <div style="background-color: #5820FF;  box-shadow: inset 0px 10px 10px -10px rgba(0, 0, 0, 0.5);    min-width: 300px;" >
-                    <ul class="nav flex-column" style="height: 100%; justify-content: space-between;">
-                        <div>
-                            <li id="home-option" class="nav-item options-bar">
-                                <span class="nav-link">Visão Geral</span>
-                            </li>
-                            <li id="account-option" class="nav-item options-bar">
-                                <span class="nav-link">Contas</span>
-                            </li>
-                            <li id="transaction-option" class="nav-item options-bar">
-                                <span class="nav-link">Lançamento Simples</span>
-                            </li>
-                            <li id="accountpayable-option" class="nav-item options-bar">
-                                <span class="nav-link">Contas a Pagar</span>
-                            </li>
-                            <li  id="accountreceivable-option" class="nav-item options-bar">
-                                <span class="nav-link">Contas a Receber</span>
-                            </li>
-                            <li id="rebate-option" class="nav-item options-bar">
-                                <span class="nav-link">Abatimentos</span>
-                            </li>
-                        
-                        </div>
-                        <div style="background-color: #5820FF;">
-                            <li  id="general-register-option" class="nav-item options-bar">
-                                <span class="nav-link">Cadastros Gerais</span>
-                            </li>
-
-                            <li  id="settings-option" class="nav-item options-bar">
-                                <span class="nav-link">Configurações</span>
-                            </li>
-                            <li id="leave-option" class="nav-item options-bar" >
-                                <span class="nav-link">Sair</span>
-                            </li>
-
-                        </div>
-                    </ul>
-                </div>
-                <main class="py-5 px-5 w-100 d-flex">
-                    {% block body %}
-
-                    {% endblock %}
-                </main>
+    {% endblock %}
+</head>
+<body class="body-style">
+    <div class="container-style">
+        <div>
+            <div class="header-style d-flex justify-content-between align-items-center h-100">
+                <span class="header-title">Finances</span>
+                <span class="header-username font-weight-bold" id="header-username-span">@alexvieiradias</span>
             </div>
         </div>
+        <div class="content-style">
+            <div class="sidebar-style">
+                <ul class="nav flex-column sidebar-nav">
+                    <div>
+                        <li id="home-option" class="nav-item options-bar">
+                            <span class="nav-link">Visão Geral</span>
+                        </li>
+                        <li id="account-option" class="nav-item options-bar">
+                            <span class="nav-link">Contas</span>
+                        </li>
+                        <li id="transaction-option" class="nav-item options-bar">
+                            <span class="nav-link">Lançamento Simples</span>
+                        </li>
+                        <li id="accountpayable-option" class="nav-item options-bar">
+                            <span class="nav-link">Contas a Pagar</span>
+                        </li>
+                        <li id="accountreceivable-option" class="nav-item options-bar">
+                            <span class="nav-link">Contas a Receber</span>
+                        </li>
+                        <li id="rebate-option" class="nav-item options-bar">
+                            <span class="nav-link">Abatimentos</span>
+                        </li>
+                    </div>
+                    <div>
+                        <li id="general-register-option" class="nav-item options-bar">
+                            <span class="nav-link">Cadastros Gerais</span>
+                        </li>
+                        <li id="settings-option" class="nav-item options-bar">
+                            <span class="nav-link">Configurações</span>
+                        </li>
+                        <li id="leave-option" class="nav-item options-bar">
+                            <span class="nav-link">Sair</span>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            <main class="main-content py-5 px-5 w-100 d-flex">
+                {% block body %}
 
-        <script type="module" src="/js/pages/__header.config.js"></script>
-        {% block scripts %}
-           
-        {% endblock %}
-    </body>
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+    <script type="module" src="{{ url_for('static', filename='JS/Utils/Autenticate.js') }}"></script>
+    {% block scripts %}
+       
+    {% endblock %}
+</body>
 </html>

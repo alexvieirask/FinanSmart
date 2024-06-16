@@ -50,7 +50,7 @@ class VSKFormSignIn extends SKForm {
             } else{
                 Session.JWT = responseData.details;
                 await Session.CURRENT_USER();
-                RedirectTo.Home();
+                window.location = "/home"
             }
         });
     }
