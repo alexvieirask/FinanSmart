@@ -8,3 +8,7 @@ class Templates:
     @app.route("/home")
     def SKHome():
         return render_template("Pages/Home/home.html")
+    
+    @app.route("/general_register")
+    def SKGeneralRegister():
+       return render_template("Pages/GeneralRegister/GeneralRegister.html")
