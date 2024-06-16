@@ -8,24 +8,19 @@ RedirectTo.ButtonRedirectOnClick("#general-register-option",RedirectTo.GeneralRe
 RedirectTo.ButtonRedirectOnClick("#settings-option",RedirectTo.Settings)
 RedirectTo.ButtonRedirectOnClick("#leave-option",Session.destroy)
 
-async function setHeaderData(){
-    try{
-        if (Session.USER){
-            Session.USER.then(user=>{
-                var headerUsername = document.querySelector("#header-username-span")
-                headerUsername.textContent = `@${user.username}`
-            }).catch(error=>{
-                console.log(error)
-            })
-        }
-       else{
-            if (window.location != '/' ){
-                RedirectTo.Login()
+async function setHeaderData() {
+    try {
+        const user = await Session.USER;
+        if (user) {
+            const headerUsername = document.querySelector("#header-username-span");
+            headerUsername.textContent = `@${user.username}`;
+        } else {
+            if (window.location.pathname !== '/') {
+                RedirectTo.Login();
             }
         }
-    }
-    catch(error){
-        console.log(error)
+    } catch (error) {
+        console.log(error);
     }
 }
 

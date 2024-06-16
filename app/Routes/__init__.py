@@ -1,2 +1,3 @@
 __all__ = ['Templates',
-           'User']
+           'User',
+           'Cache']
